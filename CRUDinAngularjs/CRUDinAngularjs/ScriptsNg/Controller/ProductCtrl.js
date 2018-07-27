@@ -14,7 +14,7 @@ app.controller('ProductCtrl', ['$scope', 'CrudService',
                 ProductName: $scope.productName,
                 Category: $scope.category,
                 Price: $scope.price,
-                CreatedDate: $scope.createdDate,
+                CreatedDate: new Date(),
                 ProductID: $scope.productID
             }
             if ($scope.btnText == "Save") {
