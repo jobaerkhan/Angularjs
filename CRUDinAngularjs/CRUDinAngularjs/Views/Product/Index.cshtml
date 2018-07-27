@@ -1,0 +1,92 @@
+﻿<div ng-app="myapp">
+    <div ng-controller="ProductCtrl">
+        <form novalidate name="frmProduct" id="frmProduct" class="form-horizontal row-border">
+            <br />
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Product Name</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idProductName"
+                               class="form-control"
+                               name="nameProductName" ng-model="productName" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Category</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idCategory"
+                               class="form-control"
+                               name="nameCategory" ng-model="category" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Price</label>
+                    <div class="col-md-7">
+                        <input type="number"
+                               id="idPrice"
+                               class="form-control"
+                               name="namePrice" ng-model="price" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Date</label>
+                    <div class="col-md-7">
+                        <input type="date"
+                               id="idDate"
+                               class="form-control"
+                               name="nameDate" ng-model="createdDate" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-7">
+                        <span id="save" class="btn btn-success margin-right-btn" ng-click="SaveUpdate()">
+                            <i class="icon-save"></i> {{btnText}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <table class="table table-hover general-table">
+                <thead class="grid-top-panel">
+                    <tr>
+                        <th style="display:none">ProductID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="dataModel in products">
+                        <td style="display:none">{{dataModel.ProductID}}</td>
+                        <td> {{dataModel.ProductName}}</td>
+                        <td> {{dataModel.Category}}</td>
+                        <td>{{dataModel.Price}}</td>
+                        <td>{{dataModel.CreatedDate | date :  "dd/MM/yyyy"}}</td>
+                        <td style="text-align:left; color:white">
+                                <span id="save" class="btn btn-primary margin-right-btn" ng-click="GetProductByID(dataModel)">
+                                    Edit
+                                </span>
+                                <span id="save" class="btn btn-danger margin-right-btn" ng-click="DeleteProduct(dataModel)">
+                                    Delete
+                                </span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <br />
+            <br />
+        </form>
+    </div>
+</div>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/ScriptsNg/Module/app.js"></script>
+<script src="~/ScriptsNg/Controller/ProductCtrl.js"></script>
+<script src="~/ScriptsNg/Services/CrudService.js"></script>

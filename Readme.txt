@@ -1,22 +1,37 @@
-VISUAL STUDIO OPTION:
-
-The Visual Studio 2013 solution is designed to run with IIS Express. To open it follow these steps:
-
-1. Start Visual Studio 2013
-2. Select File --> Open Website and select the AngularJSDemos folder
-3. Right-click on the website project and ensure that IIS Express is being used as the server.
-
-You should be all set.
+Here we use:
+Use Database SQL Server.
+Use MVC Application.
+Use Entity Framework (Database First Approach).
+Use AngularJS.
+Use ASP.NET Web API.
 
 
+Create database
 
-NODE.JS OPTION:
+Before we get started with IDE, let’s create a new database named “ProductDB” and create a sample table named “tblProduct”. The script is given belo:
 
-If you want to run the site using Node.js (install it from http://nodejs.org) run the following at the command-prompt from within the AngularJSDemos folder:
+USE [ProductDB]
+GO
 
-npm install
+/****** Object:  Table [dbo].[tblProduct]    Script Date: 7/28/2018 12:53:23 AM ******/
+SET ANSI_NULLS ON
+GO
 
-node server.js
+SET QUOTED_IDENTIFIER ON
+GO
 
-Now navigate to http://localhost:8080/index.html in your browser.
+CREATE TABLE [dbo].[tblProduct](
+	[ProductID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductName] [nvarchar](50) NULL,
+	[Category] [nvarchar](50) NULL,
+	[Price] [money] NULL,
+	[CreatedDate] [datetime] NULL,
+ CONSTRAINT [PK_tblProduct] PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
 
